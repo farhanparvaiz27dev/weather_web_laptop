@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherWave - Modern Weather App</title>
+     <link rel="shortcut icon" href="img/imgi_123_Weather_iOS_15.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cloud-sun"></i>
+                <span>WeatherWave</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Weather App -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="weather-app">
+                <div class="search-section">
+                    <input type="text" id="location-input" placeholder="Enter city name..." autocomplete="off">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                    <button id="current-location-btn"><i class="fas fa-map-marker-alt"></i></button>
+                </div>
+                
+                <div class="loading-spinner" id="loading">
+                    <div class="spinner"></div>
+                </div>
+
+                <div class="weather-display" id="weather-display">
+                    <div class="current-weather">
+                        <h2 id="city-name">--</h2>
+                        <div class="temp-section">
+                            <i id="weather-icon" class="fas fa-cloud"></i>
+                            <span id="temperature">--°C</span>
+                        </div>
+                        <p id="weather-desc">--</p>
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <i class="fas fa-wind"></i>
+                                <span>Wind: <span id="wind-speed">--</span> km/h</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-tint"></i>
+                                <span>Rain: <span id="rain-chance">--</span>%</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-eye"></i>
+                                <span>Visibility: <span id="visibility">--</span> km</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hourly-forecast">
+                        <h3>24-Hour Forecast</h3>
+                        <div class="hourly-container" id="hourly-container">
+                            <!-- Hourly forecast will be populated here -->
+                        </div>
+                    </div>
+
+                    <button id="refresh-btn" class="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+  <!-- you can add the funcation when weather not show then show its -->
+            <div class="hero-content" hidden>
+                <h1 class="hero-title">WeatherWave</h1>
+                <p class="hero-subtitle">Stay informed with accurate, real-time weather updates</p>
+                <button class="cta-btn" onclick="scrollToSection('about')">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About WeatherWave</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>WeatherWave is a cutting-edge weather application that provides accurate, real-time weather information for any location worldwide. Our advanced algorithms and reliable data sources ensure you always have the most current weather conditions at your fingertips.</p>
+                    <p>Whether you're planning a trip, organizing outdoor activities, or just want to know if you need an umbrella, WeatherWave has you covered with detailed forecasts and beautiful visualizations.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number">1M+</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-globe"></i>
+                        <span class="stat-number">195</span>
+                        <span class="stat-label">Countries</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location-Based</h3>
+                    <p>Get weather updates for your exact location or any city worldwide</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24-Hour Forecast</h3>
+                    <p>Detailed hourly weather predictions for the next 24 hours</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Perfect experience on desktop, tablet, and mobile devices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Refresh anytime to get the latest weather information</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visual Appeal</h3>
+                    <p>Beautiful animations and smooth transitions enhance user experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Notifications</h3>
+                    <p>Get alerts for severe weather conditions in your area</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Our Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="img/imgi_123_Weather_iOS_15.png" alt="Weather dashboard interface showing weather data and charts, set against a blue and white background with the text Weather Dashboard displayed in large font. The design is clean and modern, conveying a sense of clarity and reliability.">
+                    <div class="portfolio-overlay">
+                        <h3>Weather Dashboard</h3>
+                        <p>Comprehensive weather overview</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img/app.jpg" alt="Mobile app interface displaying weather information, set against a purple background with the text Mobile App shown in large font. The design is modern and user-friendly, suggesting accessibility and convenience.">
+                    <div class="portfolio-overlay">
+                        <h3>Mobile App</h3>
+                        <p>Weather on the go</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img/api.png" alt="API Integration interface with purple background and white text API Integration, modern and clean design, suggesting seamless connectivity.">
+                    <div class="portfolio-overlay">
+                        <h3>API Integration</h3>
+                        <p>Seamless data connectivity</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="img/imgi_185_Antalya-Lara-Beach.png" alt="Analytics dashboard interface displaying weather data visualizations and charts, set in a modern workspace environment. The design is clean and professional, conveying a sense of insight and precision. The text Analytics appears prominently on the dashboard.">
+                    <div class="portfolio-overlay">
+                        <h3>Weather Analytics</h3>
+                        <p>Advanced data insights</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Users Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <p>"WeatherWave has completely changed how I plan my day. The accuracy is incredible and the interface is beautiful!"</p>
+                        <div class="testimonial-author">
+                            <img src="img/imgi_143_pexels-photo-839011.jpg" alt="Sarah Johnson smiling, appearing friendly and approachable, in a bright indoor setting.">
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <span>Travel Blogger</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a photographer, knowing the exact weather conditions is crucial. WeatherWave never lets me down!"</p>
+                        <div class="testimonial-author">
+                            <img src="img/imgi_147_pexels-photo-1043473.jpg" alt="Mike Chen smiling, appearing professional and confident, in a well-lit studio environment.">
+                            <div>
+                                <h4>Mike Chen</h4>
+                                <span>Professional Photographer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The 24-hour forecast feature is a game-changer. I can plan my outdoor activities with confidence."</p>
+                        <div class="testimonial-author">
+                            <img src="img/imgi_143_pexels-photo-839011.jpg" alt="Emma Rodriguez smiling warmly, appearing enthusiastic and approachable, in a cheerful event setting.">
+                            <div>
+                                <h4>Emma Rodriguez</h4>
+                                <span>Event Planner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active" onclick="showTestimonial(0)"></span>
+                <span class="dot" onclick="showTestimonial(1)"></span>
+                <span class="dot" onclick="showTestimonial(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@weatherwave.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Weather Street, Cloud City</span>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WeatherWave</h3>
+                    <p>Accurate weather forecasting for everyone, everywhere.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WeatherWave. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
